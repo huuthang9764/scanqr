@@ -11,7 +11,7 @@
  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js'></script>
  <script src='https://rawgit.com/schmich/instascan-builds/master/instascan.min.js'></script>
- <title>QR Code1</title>
+ <title>QR Code2</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -20,8 +20,9 @@
 
 
 </head>
-
 <body>
+
+
 
  <table border="1" width="600" height="500" style="margin: 50px auto 50px;">
  <tr height="50">
@@ -39,8 +40,9 @@
  <div id="container"></div>
  <br>
  
- <button id="btnGenerateQR">Scan QR2</button>
-
+ <button id="btnGenerateQR">Scan QR1</button>
+<button id="cameras1">Cam Sau</button>
+<button id="cameras2">Cam Trước</button>
  </td>
  </tr>
  </table>
@@ -58,7 +60,7 @@
    // alert(content);
    // var data = $('form#test-form').serialize();
    url1 ="https://script.google.com/macros/s/AKfycbwPakz0eXQws87qz9c3TdUFvbcIsgSMF5jSUjei7fMT9RviOQIhwMYuNrxvAFROtvvD/exec";
-   //url2 ="https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec"; //mitapp
+   url2 ="https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec"; //mitapp
    $.ajax({
      type: 'Post',
      url:'https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec',
@@ -80,11 +82,21 @@
   // }
  });
 
+
+
+ $("#cameras1").click(function(){
+  var camera = cameras[1];
+ })
+ $("#cameras2").click(function(){
+  var camera = cameras[2];
+ })
+
+
  $("#btnGenerateQR").click(function(){
    Instascan.Camera.getCameras().then(cameras => {
   
    if (cameras.length > 0) {
-      scanner.start(cameras[2]);
+      scanner.start(camera);
    } else {
        console.error("Không tìm thấy Camera !" ) ;
    }
