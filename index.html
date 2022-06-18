@@ -20,7 +20,7 @@
 
 
 </head>
-<body>
+<body onload="myFunction()">
 
 
 
@@ -82,19 +82,16 @@
   // }
  });
 
-
-
-
-
-
- $("#btnGenerateQR").click(function(){
-   $("#cameras1").click(function(){
+ $("#cameras1").click(function(){
   var camera = cameras[1];
  })
  $("#cameras2").click(function(){
   var camera = cameras[2];
  })
-   Instascan.Camera.getCameras().then(cameras => {
+
+   
+  function myFunction() {
+    Instascan.Camera.getCameras().then(cameras => {
   
    if (cameras.length > 0) {
       scanner.start(camera);
@@ -102,7 +99,7 @@
        console.error("Không tìm thấy Camera !" ) ;
    }
  });
- })
+  }
 
 
 
