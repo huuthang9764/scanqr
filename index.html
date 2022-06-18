@@ -24,7 +24,7 @@
 
 
 
- <table border="1" width="300" height="200" style="margin: 50px auto 50px;">
+ <table border="1" width="300" height="00" style="margin: 50px auto 50px;">
  <tr height="50">
  <td>
  <p style="font-weight: bold; font-size: 20px;" align="center">Máy Quét</p>
@@ -41,8 +41,8 @@
  <br>
  
  <button id="btnGenerateQR">Scan QR1</button>
-<button id="cameras1">Cam Sau</button>
-<button id="cameras2">Cam Trước</button>
+<button onclick="cameras1()">Cam Sau</button>
+<button onclick="cameras2()">Cam Trước</button>
  </td>
  </tr>
  </table>
@@ -82,7 +82,9 @@
   // }
  });
 
-
+function cameras1() {
+  alert('cameras1');
+}
 
    
   function myFunction() {
@@ -95,14 +97,6 @@
    }
  });
   }
-  $("#cameras1").click(function(){
-  var camera = cameras[1];
-  alert('cameras1')  ;
- })
- $("#cameras2").click(function(){
-  var camera = cameras[2];
-  alert('cameras2')  ;
- })
 
 
 
