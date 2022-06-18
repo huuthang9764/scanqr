@@ -61,13 +61,13 @@
    //url2 ="https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec"; //mitapp
    $.ajax({
      type: 'Post',
-     url : 'https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec',
+     url:'https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec',
      dataType: 'json',
      crossDomain: true,
-     data: content,
+     sdata: content,
 
-     success: function (data) {
-     if (data == 'false' ) {
+     success: function (sdata) {
+     if (sdata == 'false' ) {
        alert('thêm thất bại')  ;
      } else {
        alert('Đã thêm dữ liệu vào Form')  ;
