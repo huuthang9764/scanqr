@@ -84,15 +84,16 @@
 
 
 
- $("#cameras1").click(function(){
+
+
+
+ $("#btnGenerateQR").click(function(){
+   $("#cameras1").click(function(){
   var camera = cameras[1];
  })
  $("#cameras2").click(function(){
   var camera = cameras[2];
  })
-
-
- $("#btnGenerateQR").click(function(){
    Instascan.Camera.getCameras().then(cameras => {
   
    if (cameras.length > 0) {
