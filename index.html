@@ -84,7 +84,7 @@
  function btnTat(){
   scanner.stop();
  }
-var Cam = 1;
+var Cam = 2;
   function cameras1() {
   Cam = 1;
   alert(Cam);
@@ -100,6 +100,7 @@ var Cam = 1;
    
    if (cameras.length > 0) {
       scanner.start(cameras[Cam]);
+    console.log(Cam);
    } else {
        console.error("Không tìm thấy Camera !" ) ;
    }
