@@ -59,25 +59,14 @@
   
    alert(content);
    //url2 ="https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec"; //mitapp
-   $.ajax({
-     type: 'Post',
-     url:'https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec',
-     dataType: 'json',
-     crossDomain: true,
-     sdata: content,
-
-     success: function (sdata) {
-     if (sdata == 'false' ) {
-       alert('thêm thất bại')  ;
-     } else {
-       alert('Đã thêm dữ liệu vào Form')  ;
-     }
-   }
-   });
   
-  // if(content){
-  //   scanner.stop();
-  // }
+  $.post("https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec",
+  {
+    data: content,
+  },
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
  });
  function btnTat(){
   scanner.stop();
