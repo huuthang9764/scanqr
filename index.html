@@ -98,7 +98,7 @@
  <div id="container"></div>
  <br>
  
- <button id="btnGenerateQR">Generate QR</button>
+ <button id="btnGenerateQR">Generate QR1</button>
 
  </td>
  </tr>
@@ -116,13 +116,15 @@
    console.log(content);
    // alert(content);
    // var data = $('form#test-form').serialize();
+   url1 ="https://script.google.com/macros/s/AKfycbwPakz0eXQws87qz9c3TdUFvbcIsgSMF5jSUjei7fMT9RviOQIhwMYuNrxvAFROtvvD/exec";
+   url2 ="https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec"; //mitapp
    $.ajax({
-     type: 'GET',
-     url: 'https://script.google.com/macros/s/AKfycbynvBLCU_13O-tKQ6XX_56BwhoXE3JnnLHfNTdHY4SLQa8TbWpA/exec',
+     type: 'Get',
+     url2,
      dataType: 'json',
      crossDomain: true,
      data: content,
-    
+
      success: function (data) {
      if (data == 'false' ) {
        alert('thêm thất bại')  ;
@@ -132,9 +134,9 @@
    }
    });
   
-//   if(content){
-//     scanner.stop();
-//   }
+  if(content){
+    scanner.stop();
+  }
  });
 
  $("#btnGenerateQR").click(function(){
