@@ -82,25 +82,25 @@
   // }
  });
 
-function cameras1() {
-  var camera = 1;
-  alert('cameras1');
-}
-function cameras1() {
-  var camera = 2;
-  alert('cameras2');
-}
-   
   function myFunction() {
     Instascan.Camera.getCameras().then(cameras => {
-  
+  function cameras1() {
+  var Cam = 1;
+  alert('cameras1');
+  }
+  function cameras2() {
+    var Cam = 2;
+    alert('cameras2');
+  }
+   
    if (cameras.length > 0) {
-      scanner.start(cameras[camera]);
+      scanner.start(cameras[Cam]);
    } else {
        console.error("Không tìm thấy Camera !" ) ;
    }
  });
-  }
+}
+
 
 
 
