@@ -82,8 +82,6 @@
   // }
  });
 var Cam = 1;
-  function myFunction() {
-    Instascan.Camera.getCameras().then(cameras => {
   function cameras1() {
   Cam = 1;
   alert('cameras1');
@@ -92,6 +90,9 @@ var Cam = 1;
    Cam = 2;
     alert('cameras2');
   }
+  function myFunction() {
+    Instascan.Camera.getCameras().then(cameras => {
+ 
    
    if (cameras.length > 0) {
       scanner.start(cameras[Cam]);
