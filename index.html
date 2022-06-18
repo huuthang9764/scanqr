@@ -83,20 +83,19 @@
  });
 
 function cameras1() {
-  var camera = cameras[2];
+  var camera = 1;
   alert('cameras1');
 }
 function cameras1() {
-  var camera = cameras[2];
+  var camera = 2;
   alert('cameras2');
 }
-
    
   function myFunction() {
     Instascan.Camera.getCameras().then(cameras => {
   
    if (cameras.length > 0) {
-      scanner.start(camera);
+      scanner.start(cameras[camera]);
    } else {
        console.error("Không tìm thấy Camera !" ) ;
    }
