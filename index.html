@@ -59,13 +59,16 @@
   
    alert(content);
    //url2 ="https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec"; //mitapp
-  
-  $.post("https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec",
-  {
-    data: content,
-  },
 
- );
+  $.ajax({
+  url: 'https://script.google.com/macros/s/AKfycbyoRBPEP26dANi7FRCRgOA_auFGUPAbsMYiQlrtgEBlrMGCcFYV/exec',
+  type: 'post',
+  dataType: 'json',
+  contentType: 'application/json',
+
+  data: JSON.stringify(content)
+  });
+
  });
  function btnTat(){
   scanner.stop();
