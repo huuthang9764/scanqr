@@ -20,7 +20,7 @@
 
 
 </head>
-<body onload="myFunction()">
+<body onload="OpenCam()">
 
 
 
@@ -34,13 +34,14 @@
  </td>
  </tr>
  <tr>
- <td style="vertical-align:top;"><video id="preview" style="height:520px;"></video></td>
+ <td style="vertical-align:top;"><video id="preview" style="height:320px;"></video></td>
  <td align="center" style="vertical-align: top;">
 
  <div id="container"></div>
  <br>
  
  <button onclick="btnTat()">TatCam</button>
+  <button onclick="OpenCam()">MoCam</button>
 <button onclick="cameras1()">Cam Sau</button>
 <button onclick="cameras2()">Cam Trước</button>
  </td>
@@ -84,23 +85,23 @@
  function btnTat(){
   scanner.stop();
  }
-const Cam = 2;
-  function cameras1() {
-  Cam = 1;
-  alert(Cam);
-  }
-  function cameras2() {
-   Cam = 2;
-    alert(Cam);
-  }
+const Cam = 1;
+//   function cameras1() {
+//   Cam = 1;
+//   alert(Cam);
+//   }
+//   function cameras2() {
+//    Cam = 2;
+//     alert(Cam);
+//   }
  
-  function myFunction() {
+  function OpenCam() {
     Instascan.Camera.getCameras().then(cameras => {
  
    
    if (cameras.length > 0) {
       scanner.start(cameras[Cam]);
-    console.log(Cam);
+//     console.log(Cam);
    } else {
        console.error("Không tìm thấy Camera !" ) ;
    }
