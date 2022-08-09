@@ -1,52 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Instascan &ndash; Demo</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
-    <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/ico" href="IT.png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script type="text/javascript" src="qr.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>QrCode scanner</title>
   </head>
   <body>
-    <div id="app">
-      <div class="preview-container">
-        <video id="preview"></video>
+    <div id="dis-moblie">
+      <div class="startView d-flex flex-column fixed" id="startView">
+        <img src="./IT.gif" width="300px"/>
+        <br />
+        <div class="alert">
+        Cần có quyền truy cập máy ảnh để quét mã QR!
+        </div>
       </div>
-      <div class="sidebar">
-        <section class="cameras">
-          <h2>Cameras</h2>
-          <ul>
-            <li v-if="cameras.length === 0" class="empty">No cameras found</li>
-            <li v-for="camera in cameras">
-              <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
-              <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
-                <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
-              </span>
-            </li>
-          </ul>
-          <select>
-            <option v-if="cameras.length === 0" class="empty">No cameras found</option>
-            <option v-for="camera in cameras">
-              <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
-              <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
-                <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
-              </span>
-            </option>
-            
-          </select>
-        </section>
-        <section class="scans">
-          <h2>Scans</h2>
-          <ul v-if="scans.length === 0">
-            <li class="empty">No scans yet</li>
-          </ul>
-          <transition-group name="scans" tag="ul">
-            <li v-for="scan in scans" :key="scan.date" :title="scan.content">{{ scan.content }}</li>
-          </transition-group>
-        </section>
+      <header class="header">
+        <img src="/STU.png" alt="#" width="150px" />
+      </header>
+      <div id="qr-reader" class="qr-reader"></div>
+      <div id="qr-content" class="content close">
+        <div class="wrapper">
+          <header class="wrapper-header">
+            <button id="close" class="close-btn">
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 41.756 41.756"
+                xml:space="preserve"
+              >
+                <path
+                  d="M27.948,20.878L40.291,8.536c1.953-1.953,1.953-5.119,0-7.071c-1.951-1.952-5.119-1.952-7.07,0L20.878,13.809L8.535,1.465
+                 c-1.951-1.952-5.119-1.952-7.07,0c-1.953,1.953-1.953,5.119,0,7.071l12.342,12.342L1.465,33.22c-1.953,1.953-1.953,5.119,0,7.071
+                 C2.44,41.268,3.721,41.755,5,41.755c1.278,0,2.56-0.487,3.535-1.464l12.343-12.342l12.343,12.343
+                 c0.976,0.977,2.256,1.464,3.535,1.464s2.56-0.487,3.535-1.464c1.953-1.953,1.953-5.119,0-7.071L27.948,20.878z"
+                />
+              </svg>
+            </button>
+          </header>
+          <h3 class="title">Result</h3>
+          <h6 class="text-normal">QR code details :</h6>
+          <div id="qr-result"></div>
+        </div>
       </div>
     </div>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
   </body>
 </html>
