@@ -2,6 +2,8 @@ const config = {
   fps: 10,
   qrbox: 250,
 };
+const url =
+  "https://script.google.com/macros/s/AKfycbxcI2ogZFqiWHBDCwgGBVrJOhSlhRnYu5SZ9KycRg7xeximnq8IRhdk5imsT6SnpZZu/exec";
 const html5QrCode = new Html5Qrcode("qr-reader", config);
 const view = document.querySelector("#startView");
 const close = document.querySelector("#close");
@@ -44,8 +46,17 @@ const WriteContent = (qrCodeMessage) => {
     )}</a></div>`;
     qrUrl.style.display = "inline-block";
   } else {
+    var data = {
+      data: qrCodeMessage,
+    };
+
+    $.ajax({
+      url: url,
+      method: "GET",
+      data: data,
+    });
     result.innerHTML = `<div>${qrCodeMessage}</div>`;
-    qrTxt.style.display = "inline-block";
+    // qrTxt.style.display = "inline-block";
   }
 };
 const startSacan = () => {
