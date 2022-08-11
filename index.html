@@ -10,6 +10,7 @@
     <!-- <script type="text/javascript" src="instascan.min.js"></script> -->
     <script src='https://rawgit.com/schmich/instascan-builds/master/instascan.min.js'></script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script async  src="./main.js"></script>
     <style>
         :root{
             --greenblue: #00B5AE;
@@ -87,10 +88,13 @@
 <body>
     <div id="main-page">
         <div id="video-body">
-            <video id="preview"></video>
+            <video autoplay muted playsinline id="preview"></video>
         </div>
         <div id="result"></div>
         <div id="act-btn">
+            <div class="select">
+                <label for="videoSource">Video source: </label><select id="videoSource"></select>
+            </div>
             <button id="OpenCam" class="submit1" onclick="OpenCam()">Mở Cam</button>
             <button id="CloseCam" class="submit1" onclick="CloseCam()">Tắt Cam</button>
         </div>
@@ -105,14 +109,16 @@
             "https://script.google.com/macros/s/AKfycbxcI2ogZFqiWHBDCwgGBVrJOhSlhRnYu5SZ9KycRg7xeximnq8IRhdk5imsT6SnpZZu/exec";
         const Cam = 1;
         function OpenCam() {
-            Instascan.Camera.getCameras().then(cameras => {
-                if (cameras.length > 0) {
-                    scanner.start(cameras[Cam]);
-                    //     console.log(Cam);
-                } else {
-                    console.error("Không tìm thấy Camera !");
-                }
-            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+              if (cameras.length > 0) {
+
+                scanner.start(cameras[0]); //I want to scanner.start the camara that the user has selected.
+              } else {
+                console.error('No cameras found.');
+              }
+        }).catch(function (e) {
+              console.error(e);
+        });
         }
         function CloseCam() {
             scanner.stop();
@@ -120,14 +126,14 @@
         scanner.addListener('scan', function (content) {
             result.innerHTML = `<p>${content}</p>`;
             console.log(content);
-            var data = {
-                data: content,
-            };
-            $.ajax({
-                url: url,
-                method: "GET",
-                data: data,
-            });
+            // var data = {
+            //     data: content,
+            // };
+            // $.ajax({
+            //     url: url,
+            //     method: "GET",
+            //     data: data,
+            // });
             
         });
         window.addEventListener("load", OpenCam, true);
