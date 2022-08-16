@@ -10,7 +10,7 @@
     <!-- <script type="text/javascript" src="instascan.min.js"></script> -->
     <script src='https://rawgit.com/schmich/instascan-builds/master/instascan.min.js'></script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script async  src="./main.js"></script>
+<!--     <script async  src="./main.js"></script> -->
     <style>
         :root{
             --greenblue: #00B5AE;
@@ -112,7 +112,7 @@
             Instascan.Camera.getCameras().then(function (cameras) {
               if (cameras.length > 0) {
 
-                scanner.start(cameras[0]); //I want to scanner.start the camara that the user has selected.
+                scanner.start(cameras[]); //I want to scanner.start the camara that the user has selected.
               } else {
                 console.error('No cameras found.');
               }
