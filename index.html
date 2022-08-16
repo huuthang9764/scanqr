@@ -112,7 +112,7 @@
             Instascan.Camera.getCameras().then(function (cameras) {
               if (cameras.length > 0) {
 
-                scanner.start(cameras[]); //I want to scanner.start the camara that the user has selected.
+                scanner.start(cameras[1]); //I want to scanner.start the camara that the user has selected.
               } else {
                 console.error('No cameras found.');
               }
