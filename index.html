@@ -12,132 +12,24 @@
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <!--     <script async  src="./main.js"></script> -->
     <style>
-        :root{
-            --greenblue: #00B5AE;
-            --white:#f2f2f2;
-            --green: #abe9d2;;
-        }
-        #main-page{
-            max-width: 400px;
-            height: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid var(--greenblue);
-        }
-        #video-body{
-            width: 400px;
-            height: 400px;
-        }
-        #preview{
-            width: 400px;
-            height: 400px;
-        }
-        #result{
-            width: 400px;
-            height: 50px;
-            text-align: center;
-            border: 1px solid var(--greenblue);
-        }
-        #act-btn{
-            max-width: 200px;
-            margin-top: 10px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-        }
-        .submit1 {
-            background-color: #00B5AE;
-            border-radius: 12px;
-            border: 0;
-            box-sizing: border-box;
-            color: #eee;
-            cursor: pointer;
-            font-size: 18px;
-            height: 50px;
-            text-align: center;
-            width: 100%;
-        }
-        @media screen and (max-width:420px){
-            #main-page{
-                max-width: 300px;
-                height: 300px;
-            }
-            #video-body{
-                width: 300px;
-                height: 300px;
-            }
-            #preview{
-                width: 300px;
-                height: 300px;
-            }
-            #result{
-                width: 300px;
-                height: 30px;
-                border: 1px solid var(--greenblue);
-            }
-            #result p{
-                font-size: 10px;
-            }
-            #act-btn{
-                margin-top: 10px;
-            }
-        }
-    </style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		iframe{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			width: 100%;
+			height: 700px;
+		}
+	</style>
 </head>
 
 <body>
-    <div id="main-page">
-        <div id="video-body">
-            <video autoplay muted playsinline id="preview"></video>
-        </div>
-        <div id="result"></div>
-        <div id="act-btn">
-            <div class="select">
-                <label for="videoSource">Video source: </label><select id="videoSource"></select>
-            </div>
-            <button id="OpenCam" class="submit1" onclick="OpenCam()">Mở Cam</button>
-            <button id="CloseCam" class="submit1" onclick="CloseCam()">Tắt Cam</button>
-        </div>
-    </div>
-    <script>
-        let scanner = new Instascan.Scanner(
-            {
-                video: document.getElementById('preview')
-            });
-        const result = document.querySelector("#result");
-        const url =
-            "https://script.google.com/macros/s/AKfycbxcI2ogZFqiWHBDCwgGBVrJOhSlhRnYu5SZ9KycRg7xeximnq8IRhdk5imsT6SnpZZu/exec";
-        const Cam = 1;
-        function OpenCam() {
-            Instascan.Camera.getCameras().then(function (cameras) {
-              if (cameras.length > 0) {
-
-                scanner.start(cameras[2]); //I want to scanner.start the camara that the user has selected.
-              } else {
-                console.error('No cameras found.');
-              }
-        }).catch(function (e) {
-              console.error(e);
-        });
-        }
-        function CloseCam() {
-            scanner.stop();
-        }
-        scanner.addListener('scan', function (content) {
-            result.innerHTML = `<p>${content}</p>`;
-            console.log(content);
-            // var data = {
-            //     data: content,
-            // };
-            // $.ajax({
-            //     url: url,
-            //     method: "GET",
-            //     data: data,
-            // });
-            
-        });
-        window.addEventListener("load", OpenCam, true);
-    </script>
+    <iframe src="https://script.google.com/macros/s/AKfycbyhuCcsCYC4dAzBN0oc0OLvzvyqa87kFgDArlIIi_oC-i_3xHn-o5UGufkTpm3eewWB/exec" 
+	title="Tân Sinh Viên Khoa Công Nghệ Thông Tin">
+	</iframe>
 </body>
 
 </html>
